@@ -1,0 +1,33 @@
+(A) departamento(cód(sublinhado),nome
+funcionario(matricula*, codigo,nome,salario
+
+departamento(codigo*,nome)
+
+(B)
+
+endereço(cód(sublinhado),numero,logradouro
+endereço(cidade,uf,cep
+pessoa(id*,nome
+fisica(cpf,sexo
+juridica(cnpj,inscrição
+
+
+(C)
+
+Banco (cód(sublinhado),nome,cod_banco
+banco(nome,cod_banco*
+agencia(nome,cod_agencia*
+agencia(valor_parcela,qtde_parcelas,taxa_juros
+cliente(data_nasc,nome,cpf*
+
+(D)
+fornecedor (cód(sublinhado),id_fornecedor*,nome
+produto(id_produto*,nome
+consumidor(id_consumidor*,nome
+
+(E)
+
+paciente(cód(sublinhado),cpf*,nome
+paciente(cpf*,nome,telefone,consulta,data
+medico(crm*,nome,especialidade
+
