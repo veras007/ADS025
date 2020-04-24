@@ -1,0 +1,86 @@
+1. Aplique a 1FN, 2FN e 3FN para cada tabela não normalizada.
+
+a) Projeto (numero_empregado, nome_empregado, numero_depto, nome_depto, numero_gerente, nome_gerente, numero_projeto, nome_projeto, data_inicio_projeto, horas_trabalhadas_projeto).
+
+Chave(s): numero_projeto
+Dependência(s): numero_projeto -> nome_projeto, data_inicio_projeto, numero_gerente, nome_gerente                
+                n
+                numero_depto -> nome_depto
+                numero_gerente -> nome_gerente
+
+
+1FN,JOSE ,22,RH,  3,MARIA,10,X,26/03,2020,100
+2FN,CHICO ,24,RH,  3,MARIA,10,X,26/03,2020,10
+3FN,JOAO ,20,FINANCEIRO,  3,TIAO,10,X,26/03,2020,50
+
+1FN
+Projeto(numero_projeto*,numero_projeto -> nome_projeto, data_inicio_projeto, numero_gerente, nome_gerente)
+Projeto_empregado(numero_empregado* -> nome_empregado, numero_depto, nome_depto, horas_trabalhadas_projeto)
+
+2FN
+
+Projeto(numero_projeto*,numero_projeto -> nome_projeto, data_inicio_projeto, numero_gerente, nome_gerente)
+Projeto_empregado(numero_empregado* -> nome_empregado, numero_depto, nome_depto, horas_trabalhadas_projeto)
+empregado(numero_empregado* -> nome_empregado, numero_depto, nome_depto)
+
+3FN
+
+Projeto(numero_projeto*,numero_projeto -> nome_projeto, data_inicio_projeto, numero_gerente, nome_gerente)
+Projeto_empregado(numero_empregado* -> nome_empregado, numero_depto, nome_depto, horas_trabalhadas_projeto)
+empregado(numero_empregado* -> nome_empregado, numero_depto, nome_depto)
+
+
+b) Pedido (cod_pedido, dat_emissao, cod_fornecedor, nom_fornecedor, end_fornecedor, cod_material, dsc_material, qtd_pedido, vlr_unitario, vl_total_material, vlr_total_pedido).
+
+Chave(s): cod_pedido
+Dependência(s): cod_pedido -> dat_emissao, cod_fornecedor, nom_fornecedor, end_fornecedor, vlr_total_pedido
+                {cod_pedido, cod_material} -> qtd_pedido, vl_total_material
+                cod_material -> dsc_material, vlr_unitario 
+                cod_fornecedor -> nom_fornecedor, end_fornecedor
+
+1FN, 103,11/05/2019,13,TRANSPORTESSP,SP,1300,
+2FN 103,12,10,1300
+3FN 12,7,30,13,TRANPORTESSP,SP
+
+
+1FN cod_pedido*, dat_emissao, cod_fornecedor, nom_fornecedor, end_fornecedor, cod_material, dsc_material, qtd_pedido, vlr_unitario, vl_total_material, vlr_total_pedido)
+2FN cod_pedido, cod_material} -> qtd_pedido, vl_total_material
+3FNcod_material -> dsc_material, vlr_unitario cod_fornecedor -> nom_fornecedor, end_fornecedor
+
+
+c) Turma (codigo_aluno, nome_aluno, email_aluno, fone_contato, cod_curso, nome_curso, data_matricula).
+
+Chaves(s): codigo_aluno, codigo_curso
+Dependência(s): codigo_aluno -> nome_aluno, email_aluno, fone_contato
+                cod_curso -> nome_curso
+
+1FN 10,GUSTAVO,gustavovale29@gmail.com,40028922,025,ads,20/01/2020
+2FN 16,luiz,luiz@gmail.com,53442597, 025, ads
+3FN 15,diego,diego@gmail.com,53442597, 025, ads
+
+1FN (codigo_aluno*, nome_aluno, email_aluno, fone_contato, cod_curso, nome_curso, data_matricula)
+2 FN codigo_aluno* -> nome_aluno, email_aluno, fone_contato cod_curso -> nome_curso
+3 FN codigo_aluno* -> nome_aluno, email_aluno, fone_contato cod_curso -> nome_curso
+
+
+d) Consulta (num_paciente, nome_paciente, data_consulta, dsc_diagnostico, cod_medico, nome_medico, cod_especialidade, dsc_especialidade).
+
+Chaves(s): num_paciente, data_consulta, cod_medico
+Dependência(s): num_paciente -> nome_paciente
+                cod_medico -> nome_medico, cod_especialidade, dsc_especialidade
+                cod_especialidade -> dsc_especialidade
+
+1FN 10,gustavo,15/03/19,dengue,5,juan,cirurgiao,enfermaria
+2FN 8,joao,16,cristiano,cirurgiao,enfermaria,
+2FN 7,joao,15,luan,cirurgiao,enfermaria,
+
+1FN (num_paciente*, nome_paciente, data_consulta, dsc_diagnostico, cod_medico, nome_medico, cod_especialidade, dsc_especialidade
+2FN num_paciente* -> nome_paciente cod_medico -> nome_medico, cod_especialidade, dsc_especialidade cod_especialidade -> dsc_especialidade
+3FN num_paciente* -> nome_paciente cod_medico -> nome_medico, cod_especialidade, dsc_especialidade cod_especialidade -> dsc_especialidade
+
+
+
+
+
+
+
